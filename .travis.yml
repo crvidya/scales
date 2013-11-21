@@ -1,5 +1,8 @@
 language: scala
-script: "sbt test"
+script: "sbt test" 
+before_script:
+  mkdir -p shippable/codecoverage shippable/testresults
+  
 scala:
    - 2.10.2
    
