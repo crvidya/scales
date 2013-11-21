@@ -20,3 +20,7 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "2.0" % "test"
 
 libraryDependencies += "org.scala-lang" % "scala-compiler" % "2.10.3"
 
+testOptions in Test <+= (target in Test) map {
+  t => Tests.Argument(TestFrameworks.ScalaTest, "junitxml(directory=\"%s\")" format (t / "../shippable/testresults"))
+}
+
